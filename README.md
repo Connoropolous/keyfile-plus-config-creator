@@ -4,6 +4,8 @@ This binary will create two files
 
 It uses the null/default passphrase that the Conductor expects, as a temporary hack to quicken this process
 
+Takes a bootstrap node address as the first and only argument.
+
 "priv.key", the newly generated key for your user
 "conductor-config.toml" which is configured for that new user
 
