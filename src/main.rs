@@ -25,6 +25,7 @@ const FIRST_HALF : &'static str = r#"
 [logger]
 type = "debug"
 [[logger.rules.rules]]
+exclude = true
 pattern = "^debug"
 
 [[agents]]
@@ -71,7 +72,7 @@ dna_interface = "websocket_interface"
 
 [network]
 n3h_path = "./n3h"
-n3h_log_level = "i"
+n3h_log_level = "e"
 n3h_persistence_path = "./n3hfolder"
 "#;
 
