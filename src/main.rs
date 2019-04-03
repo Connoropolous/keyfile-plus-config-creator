@@ -77,9 +77,9 @@ n3h_persistence_path = "./n3hfolder"
 
 pub fn main() {
     let args: Vec<String> = env::args().collect();
-    println!("Generating key file");
+    println!("Generating key file, please wait...");
     let bootstrap_node = &args[1];
-    let maybe_address = keygen(PathBuf::from("./priv.key".to_string()), String::from(""));
+    let maybe_address = keygen(PathBuf::from("./priv.key".to_string()), holochain_common::DEFAULT_PASSPHRASE.to_string());
     match maybe_address {
         Ok(address) => {
             let mut file = File::create(PathBuf::from("conductor-config.toml".to_string())).unwrap();
