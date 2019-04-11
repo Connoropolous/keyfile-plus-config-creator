@@ -1,17 +1,17 @@
 [package]
-name = "driver"
+name = "key-config-gen"
 version = "0.1.0"
 authors = ["Connor Turland <connorturland@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-holochain_core_types = { git = "https://github.com/holochain/holochain-rust" , rev = "aff6b9f3" }
-holochain_core = { git = "https://github.com/holochain/holochain-rust" , rev = "aff6b9f3" }
-holochain_common = { git = "https://github.com/holochain/holochain-rust" , rev = "aff6b9f3" }
-holochain_conductor_api = { git = "https://github.com/holochain/holochain-rust" , rev = "aff6b9f3" }
-holochain_dpki = { git = "https://github.com/holochain/holochain-rust" , rev = "aff6b9f3" }
-holochain_sodium = { git = "https://github.com/holochain/holochain-rust" , rev = "aff6b9f3" }
-holochain_wasm_utils = { git = "https://github.com/holochain/holochain-rust" , rev = "aff6b9f3" }
+holochain_core_types = { git = "https://github.com/holochain/holochain-rust" , branch = "develop" }
+holochain_core = { git = "https://github.com/holochain/holochain-rust" , branch = "develop" }
+holochain_common = { git = "https://github.com/holochain/holochain-rust" , branch = "develop" }
+holochain_conductor_api = { git = "https://github.com/holochain/holochain-rust" , branch = "develop" }
+holochain_dpki = { git = "https://github.com/holochain/holochain-rust" , branch = "develop" }
+holochain_sodium = { git = "https://github.com/holochain/holochain-rust" , branch = "develop" }
+holochain_wasm_utils = { git = "https://github.com/holochain/holochain-rust" , branch = "develop" }
 structopt = "=0.2.15"
 failure = "=0.1.5"
 serde = "=1.0.89"

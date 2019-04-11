@@ -34,7 +34,7 @@ name = "HoloTester1"
 "#;
 
 const SECOND_HALF : &'static str = r#"
-keystore_file = "./priv.key"
+keystore_file = "./keystore.key"
 
 [[dnas]]
 id = "chat_dna"
@@ -62,7 +62,6 @@ id = "holo-chat"
 [[ui_bundles]]
 id = "main"
 root_dir = "./ui"
-hash = "Qm000"
 
 [[ui_interfaces]]
 id = "ui-interface"
@@ -71,22 +70,20 @@ port = 3000
 dna_interface = "websocket_interface"
 
 [network]
-n3h_path = "./n3h"
-n3h_log_level = "e"
-n3h_persistence_path = "./n3hfolder"
+n3h_log_level = "i"
 "#;
 
 pub fn main() {
     let args: Vec<String> = env::args().collect();
     println!("Generating key file, please wait...");
     let bootstrap_node = &args[1];
-    let maybe_address = keygen(PathBuf::from("./priv.key".to_string()), holochain_common::DEFAULT_PASSPHRASE.to_string());
+    let maybe_address = keygen(PathBuf::from("./keystore.key".to_string()), holochain_common::DEFAULT_PASSPHRASE.to_string());
     match maybe_address {
         Ok(address) => {
             let mut file = File::create(PathBuf::from("conductor-config.toml".to_string())).unwrap();
             let contents = format!("{}public_address = \"{}\"{}bootstrap_nodes=[\"{}\"]", FIRST_HALF, address, SECOND_HALF, bootstrap_node);
-            file.write_all(contents.as_bytes());
-            println!("Successfully wrote priv.key and conductor-config.toml file");
+            let _ = file.write_all(contents.as_bytes());
+            println!("Successfully wrote keystore.key and conductor-config.toml file");
         },
         Err(e) => {
             println!("{:?}", e);
