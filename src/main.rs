@@ -38,7 +38,7 @@ keystore_file = "./keystore.key"
 
 [[dnas]]
 id = "chat_dna"
-file = "dna/holo-chat.hcpkg"
+file = "dna/holo-chat.dna.json"
 
 [[instances]]
 id = "holo-chat"
@@ -70,6 +70,7 @@ port = 3000
 dna_interface = "websocket_interface"
 
 [network]
+n3h_persistence_path = "/tmp"
 n3h_log_level = "i"
 "#;
 
