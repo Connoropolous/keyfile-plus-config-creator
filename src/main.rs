@@ -73,6 +73,7 @@ n3h_persistence_path = "./n3hfolder"
 n3h_log_level = "i"
 n3h_mode = "REAL"
 bootstrap_nodes=[]
+networking_config_file="./network-config.json"
 "#;
 
 pub fn main() {

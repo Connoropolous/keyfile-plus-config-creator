@@ -1,6 +1,6 @@
 # keyfile-plus-config-creator
 
-**working with develop @ 6b3748081b110e0f0c3478196376a4be47eb24fa**
+**working with develop @ b967c58bab1c9cffced6f65e12ab1c21941f295f**
 
 This binary will create two files
 

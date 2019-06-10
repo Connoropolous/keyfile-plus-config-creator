@@ -5,13 +5,12 @@ authors = ["Connor Turland <connorturland@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-holochain_core_types = { git = "https://github.com/holochain/holochain-rust" , branch = "develop" }
-holochain_core = { git = "https://github.com/holochain/holochain-rust" , branch = "develop" }
-holochain_common = { git = "https://github.com/holochain/holochain-rust" , branch = "develop" }
-holochain_conductor_api = { git = "https://github.com/holochain/holochain-rust" , branch = "develop" }
-holochain_dpki = { git = "https://github.com/holochain/holochain-rust" , branch = "develop" }
-holochain_sodium = { git = "https://github.com/holochain/holochain-rust" , branch = "develop" }
-holochain_wasm_utils = { git = "https://github.com/holochain/holochain-rust" , branch = "develop" }
+holochain_core_types = { git = "https://github.com/holochain/holochain-rust" , rev = "b967c58bab1c9cffced6f65e12ab1c21941f295f" }
+holochain_core = { git = "https://github.com/holochain/holochain-rust" , rev = "b967c58bab1c9cffced6f65e12ab1c21941f295f" }
+holochain_common = { git = "https://github.com/holochain/holochain-rust" , rev = "b967c58bab1c9cffced6f65e12ab1c21941f295f" }
+holochain_conductor_api = { git = "https://github.com/holochain/holochain-rust" , rev = "b967c58bab1c9cffced6f65e12ab1c21941f295f" }
+holochain_dpki = { git = "https://github.com/holochain/holochain-rust" , rev = "b967c58bab1c9cffced6f65e12ab1c21941f295f" }
+holochain_wasm_utils = { git = "https://github.com/holochain/holochain-rust" , rev = "b967c58bab1c9cffced6f65e12ab1c21941f295f" }
 structopt = "=0.2.15"
 failure = "=0.1.5"
 serde = "=1.0.89"
