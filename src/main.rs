@@ -70,7 +70,7 @@ dna_interface = "websocket_interface"
 
 [network]
 n3h_persistence_path = "./n3hfolder"
-n3h_log_level = "t"
+n3h_log_level = "i"
 n3h_mode = "REAL"
 bootstrap_nodes=[]
 networking_config_file="./network-config.json"
