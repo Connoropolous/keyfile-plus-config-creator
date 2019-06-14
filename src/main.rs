@@ -23,9 +23,9 @@ pub fn keygen(path: PathBuf, passphrase: String) -> Result<String, Error> {
 const FIRST_HALF : &'static str = r#"
 [logger]
 type = "debug"
-[[logger.rules.rules]]
-exclude = true
-pattern = "^debug"
+# [[logger.rules.rules]]
+# exclude = true
+# pattern = "^debug"
 
 [[agents]]
 id = "test_agent1"
@@ -70,7 +70,7 @@ dna_interface = "websocket_interface"
 
 [network]
 n3h_persistence_path = "./n3hfolder"
-n3h_log_level = "i"
+n3h_log_level = "t"
 n3h_mode = "REAL"
 bootstrap_nodes=[]
 networking_config_file="./network-config.json"
