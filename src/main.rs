@@ -38,14 +38,12 @@ keystore_file = "./keystore.key"
 [[dnas]]
 id = "chat_dna"
 file = "dna/holochain-basic-chat.dna.json"
+hash = "Qmdk7BdqGWBzQZiFXme3Qj5xt5XNU5wX2KnvJ9wP5kQ3sQ"
 
 [[instances]]
 id = "holo-chat"
 dna = "chat_dna"
 agent = "test_agent1"
-[instances.logger]
-type = "simple"
-file = "app_spec.log"
 [instances.storage]
 type = "file"
 path = "storage"
@@ -69,6 +67,7 @@ port = 3000
 dna_interface = "websocket_interface"
 
 [network]
+type = "n3h"
 n3h_persistence_path = "./n3hfolder"
 n3h_log_level = "i"
 n3h_mode = "REAL"
