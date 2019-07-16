@@ -5,12 +5,13 @@ authors = ["Connor Turland <connorturland@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-holochain_core_types = { git = "https://github.com/holochain/holochain-rust" , rev = "775ab022b735f85993b9d7e03a114ed3fca7d038" }
-holochain_core = { git = "https://github.com/holochain/holochain-rust" , rev = "775ab022b735f85993b9d7e03a114ed3fca7d038" }
-holochain_common = { git = "https://github.com/holochain/holochain-rust" , rev = "775ab022b735f85993b9d7e03a114ed3fca7d038" }
-holochain_conductor_api = { git = "https://github.com/holochain/holochain-rust" , rev = "775ab022b735f85993b9d7e03a114ed3fca7d038" }
-holochain_dpki = { git = "https://github.com/holochain/holochain-rust" , rev = "775ab022b735f85993b9d7e03a114ed3fca7d038" }
-holochain_wasm_utils = { git = "https://github.com/holochain/holochain-rust" , rev = "775ab022b735f85993b9d7e03a114ed3fca7d038" }
+holochain_core_types = { git = "https://github.com/holochain/holochain-rust" , rev = "75091ffed8046e7137d17b0e9bc5749f0506e00d" }
+holochain_core = { git = "https://github.com/holochain/holochain-rust" , rev = "75091ffed8046e7137d17b0e9bc5749f0506e00d" }
+holochain_common = { git = "https://github.com/holochain/holochain-rust" , rev = "75091ffed8046e7137d17b0e9bc5749f0506e00d" }
+holochain_conductor_api = { git = "https://github.com/holochain/holochain-rust" , rev = "75091ffed8046e7137d17b0e9bc5749f0506e00d" }
+holochain_dpki = { git = "https://github.com/holochain/holochain-rust" , rev = "75091ffed8046e7137d17b0e9bc5749f0506e00d" }
+holochain_wasm_utils = { git = "https://github.com/holochain/holochain-rust" , rev = "75091ffed8046e7137d17b0e9bc5749f0506e00d" }
+holochain_persistence_api = "0.0.6"
 structopt = "=0.2.15"
 failure = "=0.1.5"
 serde = "=1.0.89"
@@ -21,7 +22,7 @@ semver = { version = "0.9.0", features = ["serde"] }
 base64 = "=0.10.1"
 colored = "=1.7.0"
 ignore = "=0.4.6"
-rustyline = "=3.0.0"
+#rustyline = "=3.0.0"
 directories = "=1.0.2"
 
 [dev-dependencies]
