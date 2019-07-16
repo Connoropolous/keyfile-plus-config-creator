@@ -1,9 +1,12 @@
 use failure::Error;
 use holochain_conductor_api::{
+    conductor::Conductor,
     key_loaders::mock_passphrase_manager,
     keystore::{Keystore, PRIMARY_KEYBUNDLE_ID},
 };
 use holochain_dpki::SEED_SIZE;
+use holochain_persistence_api::cas::content::AddressableContent;
+
 use std::{
     fs::File,
     io::prelude::*,
@@ -20,7 +23,15 @@ pub fn keygen(path: PathBuf, passphrase: String) -> Result<String, Error> {
     Ok(pub_key)
 }
 
-const FIRST_HALF : &'static str = r#"
+pub fn main() {
+    println!("Generating key file, please wait...");
+    let maybe_address = keygen(PathBuf::from("./keystore.key".to_string()), holochain_common::DEFAULT_PASSPHRASE.to_string());
+    match maybe_address {
+        Ok(address) => {
+            let mut file = File::create(PathBuf::from("conductor-config.toml".to_string())).unwrap();
+            let dna = Conductor::load_dna(&PathBuf::from("./dna/holochain-basic-chat.dna.json"))
+                .expect("Could not find DNA in ./dna/holochain-basic-chat.dna.json!");
+            let contents = format!(r#"
 [logger]
 type = "debug"
 # [[logger.rules.rules]]
@@ -30,15 +41,13 @@ type = "debug"
 [[agents]]
 id = "test_agent1"
 name = "HoloTester1"
-"#;
-
-const SECOND_HALF : &'static str = r#"
 keystore_file = "./keystore.key"
+public_address = "{agent_address}"
 
 [[dnas]]
 id = "chat_dna"
 file = "dna/holochain-basic-chat.dna.json"
-hash = "Qmdk7BdqGWBzQZiFXme3Qj5xt5XNU5wX2KnvJ9wP5kQ3sQ"
+hash = "{dna_hash}"
 
 [[instances]]
 id = "holo-chat"
@@ -73,15 +82,9 @@ n3h_log_level = "i"
 n3h_mode = "REAL"
 bootstrap_nodes=[]
 networking_config_file="./network-config.json"
-"#;
-
-pub fn main() {
-    println!("Generating key file, please wait...");
-    let maybe_address = keygen(PathBuf::from("./keystore.key".to_string()), holochain_common::DEFAULT_PASSPHRASE.to_string());
-    match maybe_address {
-        Ok(address) => {
-            let mut file = File::create(PathBuf::from("conductor-config.toml".to_string())).unwrap();
-            let contents = format!("{}public_address = \"{}\"{}", FIRST_HALF, address, SECOND_HALF);
+"#,
+agent_address = address,
+dna_hash = dna.address());
             let _ = file.write_all(contents.as_bytes());
             println!("Successfully wrote keystore.key and conductor-config.toml file");
         },
