@@ -37,6 +37,7 @@ type = "debug"
 # [[logger.rules.rules]]
 # exclude = true
 # pattern = "^debug"
+state_dump = true
 
 [[agents]]
 id = "test_agent1"
