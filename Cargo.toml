@@ -5,12 +5,12 @@ authors = ["Connor Turland <connorturland@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-holochain_core_types = { git = "https://github.com/holochain/holochain-rust" , rev = "b967c58bab1c9cffced6f65e12ab1c21941f295f" }
-holochain_core = { git = "https://github.com/holochain/holochain-rust" , rev = "b967c58bab1c9cffced6f65e12ab1c21941f295f" }
-holochain_common = { git = "https://github.com/holochain/holochain-rust" , rev = "b967c58bab1c9cffced6f65e12ab1c21941f295f" }
-holochain_conductor_api = { git = "https://github.com/holochain/holochain-rust" , rev = "b967c58bab1c9cffced6f65e12ab1c21941f295f" }
-holochain_dpki = { git = "https://github.com/holochain/holochain-rust" , rev = "b967c58bab1c9cffced6f65e12ab1c21941f295f" }
-holochain_wasm_utils = { git = "https://github.com/holochain/holochain-rust" , rev = "b967c58bab1c9cffced6f65e12ab1c21941f295f" }
+holochain_core_types = "=0.0.38-alpha9"
+holochain_core = "=0.0.38-alpha9"
+holochain_common = "=0.0.38-alpha9"
+holochain_conductor_lib = "=0.0.38-alpha9"
+holochain_dpki = "=0.0.38-alpha9"
+holochain_wasm_utils = "=0.0.38-alpha9"
 structopt = "=0.2.15"
 failure = "=0.1.5"
 serde = "=1.0.89"
@@ -21,7 +21,7 @@ semver = { version = "0.9.0", features = ["serde"] }
 base64 = "=0.10.1"
 colored = "=1.7.0"
 ignore = "=0.4.6"
-rustyline = "=3.0.0"
+rustyline = "=5.0.4"
 directories = "=1.0.2"
 
 [dev-dependencies]

@@ -1,5 +1,5 @@
 use failure::Error;
-use holochain_conductor_api::{
+use holochain_conductor_lib::{
     key_loaders::mock_passphrase_manager,
     keystore::{Keystore, PRIMARY_KEYBUNDLE_ID},
 };
@@ -21,58 +21,55 @@ pub fn keygen(path: PathBuf, passphrase: String) -> Result<String, Error> {
 }
 
 const FIRST_HALF : &'static str = r#"
-[logger]
-type = "debug"
-# [[logger.rules.rules]]
-# exclude = true
-# pattern = "^debug"
+bridges = []
+persistence_dir = '.'
+ui_bundles = []
+ui_interfaces = []
 
 [[agents]]
-id = "test_agent1"
-name = "HoloTester1"
+id = 'hc-run-agent'
+keystore_file = './keystore.key'
+name = 'Agent 1'
 "#;
 
 const SECOND_HALF : &'static str = r#"
-keystore_file = "./keystore.key"
-
 [[dnas]]
-id = "chat_dna"
-file = "dna/holochain-basic-chat.dna.json"
-hash = "Qmdk7BdqGWBzQZiFXme3Qj5xt5XNU5wX2KnvJ9wP5kQ3sQ"
+file = './dist/acorn-hc.dna.json'
+hash = 'QmWSzdmpNZaFyxMUcdKXgewTdXJh8Bov7eowomi3NxiS7A'
+id = 'hc-run-dna'
 
 [[instances]]
-id = "holo-chat"
-dna = "chat_dna"
-agent = "test_agent1"
+agent = 'hc-run-agent'
+dna = 'hc-run-dna'
+id = 'acorn'
+
 [instances.storage]
-type = "file"
-path = "storage"
+type = 'memory'
 
 [[interfaces]]
-id = "websocket_interface"
-[interfaces.driver]
-type = "websocket"
-port = 8080
+admin = true
+id = 'websocket-interface'
+
 [[interfaces.instances]]
-id = "holo-chat"
+id = 'acorn'
 
-[[ui_bundles]]
-id = "main"
-root_dir = "./ui"
+[interfaces.driver]
+port = 8888
+type = 'websocket'
 
-[[ui_interfaces]]
-id = "ui-interface"
-bundle = "main"
-port = 3000
-dna_interface = "websocket_interface"
+[logger]
+state_dump = false
+type = 'info'
 
-[network]
-type = "n3h"
-n3h_persistence_path = "./n3hfolder"
-n3h_log_level = "i"
-n3h_mode = "REAL"
-bootstrap_nodes=[]
-networking_config_file="./network-config.json"
+[logger.rules]
+rules = []
+
+[passphrase_service]
+type = 'cmd'
+
+[signals]
+consistency = false
+trace = false
 "#;
 
 pub fn main() {
