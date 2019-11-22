@@ -36,7 +36,7 @@ name = 'Agent 1'
 const SECOND_HALF : &'static str = r#"
 [[dnas]]
 file = './dna/acorn-hc.dna.json'
-hash = 'QmWSzdmpNZaFyxMUcdKXgewTdXJh8Bov7eowomi3NxiS7A'
+hash = 'QmPBJ3EUDJypp2ySz9ooY9dhzCRa44EFv5EhuPLbg16WpJ'
 id = 'hc-run-dna'
 
 [[instances]]
