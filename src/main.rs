@@ -71,6 +71,10 @@ type = 'cmd'
 [signals]
 consistency = false
 trace = false
+
+[network]
+type = 'sim2h'
+sim2h_url = 'wss://sim2h.holochain.org:9000'
 "#;
 
 pub fn main() {
