@@ -35,7 +35,7 @@ name = 'Agent 1'
 const SECOND_HALF : &'static str = r#"
 [[dnas]]
 file = './dist/acorn-hc.dna.json'
-hash = 'QmWSzdmpNZaFyxMUcdKXgewTdXJh8Bov7eowomi3NxiS7A'
+hash = 'QmPBJ3EUDJypp2ySz9ooY9dhzCRa44EFv5EhuPLbg16WpJ'
 id = 'hc-run-dna'
 
 [[instances]]
@@ -70,6 +70,10 @@ type = 'cmd'
 [signals]
 consistency = false
 trace = false
+
+[network]
+type = 'sim2h'
+sim2h_url = 'wss://sim2h.holochain.org:9000'
 "#;
 
 pub fn main() {
