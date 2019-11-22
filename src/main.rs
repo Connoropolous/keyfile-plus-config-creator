@@ -4,7 +4,6 @@ use holochain_conductor_lib::{
     keystore::{Keystore, PRIMARY_KEYBUNDLE_ID},
 };
 use holochain_dpki::SEED_SIZE;
-use holochain_persistence_api::cas::content::AddressableContent;
 
 use std::{
     fs::File,
